@@ -44,6 +44,8 @@ for i in tqdm(list(range(0, math.ceil(approximate_results_rounded_up / 10) * 10 
     urls = get_scholar_urls(user_query, i)
     print(urls)
     all_urls.append(urls)
+    if len(urls) == 0:
+        break
     time.sleep(5)
 
 all_urls = list(set([url for url_list in all_urls for url in url_list])) # flatten
